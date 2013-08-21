@@ -1,0 +1,12 @@
+<%= link_to "Add a product", new_product_path %>
+<h1> Products </h1>
+
+<% @products.each do |product| %>
+  <%= link_to product_path(product.id) do %>
+    <h2>
+      <%= product.formatted_price %>
+      <%= product[:name] %>
+    </h2>
+  <% end %>
+  <p><%= truncate(product[:description], length: 100) %></p>
+<% end %>

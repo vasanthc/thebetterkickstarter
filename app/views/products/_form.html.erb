@@ -1,0 +1,30 @@
+<%= form_for @product do |f| %>
+
+  <% if @product.errors.present? %>
+    <% @product.errors.full_messages.each do |error| %>
+      <div class="alert">
+        <%= error %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :price_in_cents, "Price (cents):" %>
+    <%= f.text_field :price_in_cents %>
+  </p>
+
+  <p>
+    <div class="form-label">
+      <%= f.label :description %>
+    </div>
+    <%= f.text_area :description %>
+  </p>
+
+  <%= f.submit %>
+
+<% end %>
